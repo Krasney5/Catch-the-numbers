@@ -12,11 +12,6 @@ public class handTrigger : Trigger<Fall>
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
     }
-
-    void Update()
-    {
-        
-    }
     
     
     protected override void OnEnter(Fall triggered)
