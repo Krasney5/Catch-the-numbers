@@ -8,9 +8,11 @@ public class handTrigger : Trigger<Fall>
 {
     [SerializeField] private String _tag;
     private ScoreCounter _scoreCounter;
+    private Health _health;
     void Start()
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
+        _health = FindObjectOfType<Health>();
     }
     
     
@@ -23,6 +25,7 @@ public class handTrigger : Trigger<Fall>
         }
         else
         {
+            _health.GetDamage();
             Destroy(triggered.gameObject);
         }
     }
