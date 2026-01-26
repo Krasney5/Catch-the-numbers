@@ -1,17 +1,21 @@
 using TMPro;
+using UI;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _hp;
     [SerializeField] private TextMeshProUGUI _hpText;
+    private LoseScreen _loseScreen;
     void Start()
     {
         _hpText.SetText(_hp.ToString());
+        _loseScreen = FindObjectOfType<LoseScreen>();
     }
     public void GetDamage()
     {
         _hp -= 1;
+        ChekHealth();
         _hpText.SetText(_hp.ToString());
     }
     
@@ -19,7 +23,7 @@ public class Health : MonoBehaviour
     {
         if (_hp <= 0)
         {
-            //появляется табличка и игра паузица
+            _loseScreen.Lose();
         }
     }
 }
