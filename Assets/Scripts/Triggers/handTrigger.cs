@@ -25,7 +25,7 @@ public class handTrigger : Trigger<Fall>
         }
         else
         {
-            _health.GetDamage();
+            _health.TakeDamage();
             Destroy(triggered.gameObject);
         }
     }

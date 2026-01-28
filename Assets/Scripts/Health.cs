@@ -1,5 +1,6 @@
 using TMPro;
 using UI;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -12,18 +13,22 @@ public class Health : MonoBehaviour
         _hpText.SetText(_hp.ToString());
         _loseScreen = FindObjectOfType<LoseScreen>();
     }
-    public void GetDamage()
+    public void TakeDamage()
     {
         _hp -= 1;
         ChekHealth();
-        _hpText.SetText(_hp.ToString());
     }
     
     private void ChekHealth()
     {
         if (_hp <= 0)
         {
+            _hpText.SetText("0");
             _loseScreen.Lose();
+        }
+        else
+        {
+            _hpText.SetText(_hp.ToString());
         }
     }
 }
