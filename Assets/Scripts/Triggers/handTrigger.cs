@@ -9,10 +9,12 @@ public class handTrigger : Trigger<Fall>
     [SerializeField] private String _tag;
     private ScoreCounter _scoreCounter;
     private Health _health;
+    private Spawn _spawn;
     void Start()
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
         _health = FindObjectOfType<Health>();
+        _spawn = FindObjectOfType<Spawn>();
     }
     
     
@@ -26,7 +28,7 @@ public class handTrigger : Trigger<Fall>
         else
         {
             _health.TakeDamage();
-            Destroy(triggered.gameObject);
+            _spawn.DeletePrefabs(triggered.gameObject);
         }
     }
 }
